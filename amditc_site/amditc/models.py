@@ -1,10 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     company = models.ForeignKey('Company')
+    phone = PhoneNumberField()
     active = models.BooleanField(default=True)
 
 

@@ -19,6 +19,9 @@ class Company(models.Model):
     zip = models.TextField(max_length=12)
     active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Order(models.Model):
     user = models.ForeignKey(User)
@@ -36,6 +39,9 @@ class Item(models.Model):
     inventory_level = models.IntegerField()
     reorder_level = models.IntegerField()
     active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
 
 
 class OrderItem(models.Model):

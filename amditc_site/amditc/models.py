@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     company = models.ForeignKey('Company')
-    active = models.BooleanField()
+    active = models.BooleanField(default=True)
 
 
 class Company(models.Model):
@@ -15,7 +15,7 @@ class Company(models.Model):
     city = models.TextField(max_length=64)
     state = models.TextField(max_length=64)
     zip = models.TextField(max_length=12)
-    active = models.BooleanField()
+    active = models.BooleanField(default=True)
 
 
 class Order(models.Model):
@@ -33,7 +33,7 @@ class Item(models.Model):
     weight = models.FloatField()
     inventory_level = models.IntegerField()
     reorder_level = models.IntegerField()
-    active = models.BooleanField()
+    active = models.BooleanField(default=True)
 
 
 class OrderItem(models.Model):
